@@ -9,3 +9,5 @@ This repository is made for studying MERN.
 ## Debug
 1. body-parser deprecated. Thus used express substitute for body-parser(server/index.js).
 2. client/api/index.js function createPost() changed to return a value.
+3. mongoose PostMessage save() should send an failed or succeeded response. If not this error happens.
+- Error message: [err_http_headers_sent]: cannot set headers after they are sent to the client.
