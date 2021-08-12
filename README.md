@@ -11,3 +11,5 @@ This repository is made for studying MERN.
 2. client/api/index.js function createPost() changed to return a value.
 3. mongoose PostMessage save() should send an failed or succeeded response. If not this error happens.
 - Error message: [err_http_headers_sent]: cannot set headers after they are sent to the client.
+4. PostMessage 409 error: it happens because of react-file-base64. This lib convert image to object not a string.
+- selectedFile in req.body should send a string as 'selectedFile.base64'(server/controllers/posts.js/createPost()).
