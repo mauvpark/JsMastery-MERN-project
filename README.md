@@ -31,6 +31,8 @@ https://youtu.be/ngc9gnGgUdA
 - solution: selectedFile should send a string as 'selectedFile.base64'(server/controllers/posts.js/createPost()).
 6. How to un-track .env which has already been committed. 
 - solution: https://stackoverflow.com/a/1139797/13540044
+7. Pop up closed by user / Google login failed:
+- solution: https://stackoverflow.com/a/57433031
 
 ## Tips
 1. padding string: `&nbsp;`
