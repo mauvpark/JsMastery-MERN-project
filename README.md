@@ -17,6 +17,9 @@ https://youtu.be/ngc9gnGgUdA
 5. Styles Files: https://gist.github.com/adrianhajdin/...
 6. Image: http://bit.ly/memories_image
 7. Background: https://www.svgbackgrounds.com/
+8. Chrome JSON Formatter: https://github.com/callumlocke/json-formatter
+9. Heroku: https://heroku.com
+10. netlify: https://www.netlify.com/
 
 ## Debug
 1. body-parser deprecated. 
