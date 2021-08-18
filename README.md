@@ -30,4 +30,4 @@ https://youtu.be/ngc9gnGgUdA
 - solution: https://stackoverflow.com/a/1139797/13540044
 
 ## Tips
-1. padding string: &nbsp;
+1. padding string: "&nbsp;"
