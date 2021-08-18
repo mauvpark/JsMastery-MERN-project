@@ -1,6 +1,12 @@
 import express from "express";
 // ? nodejs에서는 react와 달리 말미에 확장자를 붙여줘야 함.
-import { getPosts, createPost } from "../controllers/posts.js";
+import {
+	getPosts,
+	createPost,
+	updatePost,
+	deletePost,
+	likePost,
+} from "../controllers/posts.js";
 
 const router = express.Router();
 
@@ -8,5 +14,8 @@ const router = express.Router();
 
 router.get("/", getPosts);
 router.post("/", createPost);
+router.patch("/:id", updatePost);
+router.delete("/:id", deletePost);
+router.patch("/:id/likePost", likePost);
 
 export default router;

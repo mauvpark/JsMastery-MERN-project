@@ -1,29 +1,58 @@
-import React, { useState } from "react";
+import React, { SetStateAction, useState, useEffect } from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
-import FileBase from "react-file-base64";
+import FileBase64 from "react-file-base64";
 import { useDispatch } from "react-redux";
 
 import useStyles from "./styles";
-import { createPost } from "../../actions/posts";
+import { createPost, updatePost } from "../../actions/posts";
+import { useSelector } from "react-redux";
 
-const Form = () => {
+const Form = ({
+	currentId,
+	setCurrentId,
+}: {
+	currentId: string;
+	setCurrentId: React.Dispatch<SetStateAction<string | null>>;
+}) => {
+	const post = useSelector((state: any) =>
+		currentId ? state.posts.find((p: any) => p._id === currentId) : null
+	);
 	const [postData, setPostData] = useState({
 		creator: "",
 		title: "",
 		message: "",
-		tags: "",
+		tags: [] as Array<string>,
 		selectedFile: "",
 	});
 	const classes = useStyles();
 	const dispatch = useDispatch();
 
-	const handleSubmit = (e) => {
+	useEffect(() => {
+		if (post) setPostData(post);
+	}, [post]);
+
+	const handleSubmit = (e: React.ChangeEvent<any>) => {
 		e.preventDefault();
 
-		dispatch(createPost(postData));
+		if (currentId) {
+			dispatch(updatePost(currentId, postData));
+		} else {
+			dispatch(createPost(postData));
+		}
+
+		clear();
 	};
 
-	const clear = () => {};
+	const clear = () => {
+		setCurrentId(null);
+		setPostData({
+			creator: "",
+			title: "",
+			message: "",
+			tags: [] as Array<string>,
+			selectedFile: "",
+		});
+	};
 
 	return (
 		<Paper className={classes.paper}>
@@ -33,7 +62,9 @@ const Form = () => {
 				className={`${classes.root} ${classes.form}`}
 				onSubmit={handleSubmit}
 			>
-				<Typography variant="h6">Creating a Memory</Typography>
+				<Typography variant="h6">
+					{currentId ? "Editing" : "Creating"} a Memory
+				</Typography>
 				<TextField
 					name="creator"
 					variant="outlined"
@@ -71,15 +102,21 @@ const Form = () => {
 					fullWidth
 					value={postData.tags}
 					onChange={(e) =>
-						setPostData({ ...postData, tags: e.target.value })
+						setPostData({
+							...postData,
+							tags: e.target.value.split(","),
+						})
 					}
 				/>
 				<div className={classes.fileInput}>
-					<FileBase
+					<FileBase64
 						type="file"
 						multiple={false}
-						onDone={(base64) =>
-							setPostData({ ...postData, selectedFile: base64 })
+						onDone={(imgFormat: any) =>
+							setPostData({
+								...postData,
+								selectedFile: imgFormat.base64,
+							})
 						}
 					/>
 				</div>
