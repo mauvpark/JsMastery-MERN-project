@@ -36,3 +36,25 @@ https://youtu.be/ngc9gnGgUdA
 
 ## Tips
 1. padding string: `&nbsp;`
+2. How to change states all at once function:
+`
+const initialState = {
+	firstName: "",
+	lastName: "",
+	email: "",
+	password: "",
+	confirmPassword: "",
+};
+
+const [formData, setFormData] = useState(initialState);
+
+const handleChange = (e) => {
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value,
+  });
+};`
+3. how to access CRA(create-react-app) .env: `process.env.REACT_APP_****` 
+- Docs: https://create-react-app.dev/docs/adding-custom-environment-variables/
+4. JSON WEB TOKEN(JWT) flow:
+e.g. Wants to like a post: Click the like a button => auth middleware (next) => like controller
