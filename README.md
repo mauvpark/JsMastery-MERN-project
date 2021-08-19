@@ -4,7 +4,14 @@ This project has copyright by *JavaScript Mastery*(https://github.com/adrianhajd
 This repository is made for studying MERN.
 
 ## _Check before use_
-1. Put id/password to Mongo db connection url(server/index.js).
+### client
+1. src/api/index.js: API URL
+2. src/components/Auth/Auth.js: <GoogleLogin clientId />
+
+### server
+1. server/index.js: Put id/password to Mongo db CONNECTION_URL / PORT
+2. server/controllers/user.js: signin / signup function token(JWT_SECRET_CODE)
+3. server/middleware/auth.js: JWT_SECRET_CODE
 
 ## _Checkout JsMastery's MERN Videos here👇_
 https://youtu.be/ngc9gnGgUdA
