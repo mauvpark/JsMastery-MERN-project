@@ -29,6 +29,7 @@ https://youtu.be/ngc9gnGgUdA
 10. Netlify: https://www.netlify.com/
 
 ## _Debug_
+### PART 1,2,3
 1. body-parser deprecated. 
 - solution: Thus use 'express' as a substitute for body-parser(server/index.js).
 3. client/api/index.js function createPost() changed to return a value.
@@ -40,8 +41,62 @@ https://youtu.be/ngc9gnGgUdA
 - solution: https://stackoverflow.com/a/1139797/13540044
 7. Pop up closed by user / Google login failed:
 - solution: https://stackoverflow.com/a/57433031
+### PART 4
+8.  Material-ui-chip-input install error: this module does not support *material ui core v4*.
+- solution 1: use *material ui core v5 beta* and use https://www.npmjs.com/package/@jansedlon/material-ui-chip-input.
+- solution 2: I made simple input chip. use it as workaround for just test.
+```javascript
+const [onChangeTag, setOnChangeTag] = useState("");
+const [tags, setTags] = useState([]);
+const tagRef = useRef(null);
+
+const handleDelete = (tagToDelete) => {
+	// ? Delete all tags
+	setTags([]);
+};
+
+return(
+	<TextField
+		name="Search Tags"
+		label="Search Tags"
+		variant="outlined"
+		fullWidth
+		style={{
+			margin: "10px 0 0",
+			overflow: "auto",
+		}}
+		inputRef={tagRef}
+		InputProps={{
+			startAdornment:
+				tags.length !== 0 &&
+				tags.map((tag) => (
+					<Chip
+						key={tag}
+						style={{ margin: "10px 0" }}
+						onDelete={() =>
+							handleDelete(tag)
+						}
+						label={tag}
+						variant="outlined"
+					/>
+				)),
+			onChange: (event) => {
+				setOnChangeTag(event.target.value);
+			},
+			onKeyPress: (event) => {
+				if (event.key === "Enter") {
+					setTags([...tags, onChangeTag]);
+					setOnChangeTag("");
+					tagRef.current.value = "";
+				}
+			},
+		}}
+	/>
+)
+```
 
 ## _Tips_
+### PART 1,2,3
 1. padding string: `&nbsp;`
 2. How to change states all at once function:
 ```javascript
@@ -69,3 +124,5 @@ process.env.REACT_APP_****
 - Docs: https://create-react-app.dev/docs/adding-custom-environment-variables/
 5. JSON WEB TOKEN(JWT) flow:
 e.g. Wants to like a post: Click the like a button => auth middleware (next) => like controller
+### PART 4
+6. *Query* -> /posts?page=1 -> page = 1 (To search data) / *Params* -> /posts/:id -> id = 123 (To get specific resources)
