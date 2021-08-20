@@ -16,7 +16,7 @@ This repository is made for studying MERN.
 ## _Checkout JsMastery's MERN Videos here👇_
 https://youtu.be/ngc9gnGgUdA
 
-## _Useful sites_
+## _Useful Sites_
 1. GitHub Code (feel free to give it a star ⭐): https://github.com/adrianhajdin/proje...
 2. HTTP status codes: https://www.restapitutorial.com/https...
 3. MongoDB Atlas: https://www.mongodb.com/cloud/atlas
@@ -42,7 +42,8 @@ https://youtu.be/ngc9gnGgUdA
 7. Pop up closed by user / Google login failed:
 - solution: https://stackoverflow.com/a/57433031
 ### PART 4
-8.  Material-ui-chip-input install error: this module does not support *material ui core v4*.
+8. TextField `onKeyPress event.keyCode` deprecated(Material ui core v4). use `event.key` e.g. `event.key === "Enter"`
+9.  Material-ui-chip-input install error: this module does not support *material ui core v4*.
 - solution 1: use *material ui core v5 beta* and use https://www.npmjs.com/package/@jansedlon/material-ui-chip-input.
 - solution 2: I made simple input chip. use it as workaround for just test.
 ```javascript
