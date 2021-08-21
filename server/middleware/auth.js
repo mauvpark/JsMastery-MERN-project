@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 // ? Wants to like a post
-// ? clike the like a button => auth middleware (next) => like controller
+// ? click the like a button => auth middleware (next) => like controller
 
 const auth = async (req, res, next) => {
 	try {
