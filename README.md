@@ -95,6 +95,10 @@ return(
 	/>
 )
 ```
+10. If PostDetails Component's style is collapsed:
+- solution: https://github.com/adrianhajdin/project_mern_memories/blob/PART_4/client/src/components/Posts/Post/styles.js
+11. PostDetails undfined:
+solution: Give a question mark to 'post' variable. e.g. `<Typography>{post?.title}</Typography>`
 
 ## _Tips_
 ### PART 1,2,3
