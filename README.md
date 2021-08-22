@@ -3,6 +3,13 @@
 This project has copyright by *JavaScript Mastery*(https://github.com/adrianhajdin/project_mern_memories).
 This repository is made for studying MERN.
 
+## PREVIEW
+<div stlye={{display: "flex", alignItems: "column", justifyContent: "center"}}>
+	<img src="https://user-images.githubusercontent.com/74028161/130351595-2989109d-582a-4229-b6b9-202d0ca4f0e6.png" width="300px">
+	<img src="https://user-images.githubusercontent.com/74028161/130351599-17ae19e0-9cc5-4618-90b1-6560eaa2ac42.png" width="300px">
+	<img src="https://user-images.githubusercontent.com/74028161/130351602-c87893a7-d8e3-485a-bd53-9fe02c096822.png" width="300px">
+</div>
+	
 ## _Check before use_
 ### client
 1. src/api/index.js: API URL
@@ -99,9 +106,8 @@ return(
 - solution: https://github.com/adrianhajdin/project_mern_memories/blob/PART_4/client/src/components/Posts/Post/styles.js
 11. PostDetails undefined:
 - solution: Give a question mark to 'post' variable. e.g. `<Typography>{post?.title}</Typography>`
-
-12. validateDOMNesting(...): <button> cannot appear as a descendant of <button>.: https://stackoverflow.com/questions/66409964/warning-validatedomnesting-a-cannot-appear-as-a-descendant-of-a
 ### PART 5
+12. validateDOMNesting(...): <button> cannot appear as a descendant of <button>.: https://stackoverflow.com/questions/66409964/warning-validatedomnesting-a-cannot-appear-as-a-descendant-of-a
 #### client Post/Post.js `<ButtonBase></ButtonBase>` to `<div></div>`
 ```javascript
 <div className={classes.cardAction} onClick={openPost}>
