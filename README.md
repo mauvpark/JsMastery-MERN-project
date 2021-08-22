@@ -99,8 +99,9 @@ return(
 - solution: https://github.com/adrianhajdin/project_mern_memories/blob/PART_4/client/src/components/Posts/Post/styles.js
 11. PostDetails undefined:
 - solution: Give a question mark to 'post' variable. e.g. `<Typography>{post?.title}</Typography>`
-12. validateDOMNesting(...): <button> cannot appear as a descendant of <button>.: https://stackoverflow.com/questions/66409964/warning-validatedomnesting-a-cannot-appear-as-a-descendant-of-a
 
+12. validateDOMNesting(...): <button> cannot appear as a descendant of <button>.: https://stackoverflow.com/questions/66409964/warning-validatedomnesting-a-cannot-appear-as-a-descendant-of-a
+### PART 5
 #### client Post/Post.js `<ButtonBase></ButtonBase>` to `<div></div>`
 ```javascript
 <div className={classes.cardAction} onClick={openPost}>
