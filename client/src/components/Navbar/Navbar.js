@@ -6,6 +6,7 @@ import memoriesLogo from "../../images/memoriesLogo.png";
 import memoriesText from "../../images/memoriesText.png";
 import { useDispatch } from "react-redux";
 import jwtDecode from "jwt-decode";
+import { LOGOUT } from "../../constants/actionTypes";
 
 const Navbar = () => {
 	const classes = useStyles();
@@ -17,7 +18,7 @@ const Navbar = () => {
 	const location = useLocation();
 
 	const logout = () => {
-		dispatch({ type: "LOGOUT" });
+		dispatch({ type: LOGOUT });
 
 		history.push("/");
 

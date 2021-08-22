@@ -8,6 +8,7 @@ import {
 	UPDATE,
 	DELETE,
 	LIKE,
+	COMMENT,
 } from "../constants/actionTypes";
 import * as api from "../api";
 
@@ -89,3 +90,18 @@ export const likePost = (id) => async (dispatch) => {
 		console.log(error);
 	}
 };
+
+export const commentPost =
+	(value, id, setComments, commentsRef) => async (dispatch) => {
+		try {
+			const { data } = await api.commentPost(value, id);
+
+			dispatch({ type: COMMENT, payload: data });
+
+			setComments(data.comments);
+
+			commentsRef.current.scrollIntoView({ behavior: "smooth" });
+		} catch (error) {
+			console.log(error);
+		}
+	};
