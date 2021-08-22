@@ -3,7 +3,7 @@
 This project has copyright by *JavaScript Mastery*(https://github.com/adrianhajdin/project_mern_memories).
 This repository is made for studying MERN.
 
-## PREVIEW
+## _PREVIEW_
 <div stlye={{display: "flex", alignItems: "column", justifyContent: "center"}}>
 	<img src="https://user-images.githubusercontent.com/74028161/130351595-2989109d-582a-4229-b6b9-202d0ca4f0e6.png" width="300px">
 	<img src="https://user-images.githubusercontent.com/74028161/130351599-17ae19e0-9cc5-4618-90b1-6560eaa2ac42.png" width="300px">
@@ -19,6 +19,8 @@ This repository is made for studying MERN.
 1. server/index.js: Put id/password to Mongo db CONNECTION_URL / PORT
 2. server/controllers/user.js: signin / signup function token(JWT_SECRET_CODE)
 3. server/middleware/auth.js: JWT_SECRET_CODE
+
+** PART 1,2,3 are in main branch, PART 4 is in PART4 branch and PART 5 is in PART5 branch.
 
 ## _Checkout JsMastery's MERN Videos here👇_
 https://youtu.be/ngc9gnGgUdA
