@@ -20,7 +20,7 @@ This repository is made for studying MERN.
 2. server/controllers/user.js: signin / signup function token(JWT_SECRET_CODE)
 3. server/middleware/auth.js: JWT_SECRET_CODE
 
-** PART 1,2,3 are in main branch, PART 4 is in PART4 branch and PART 5 is in PART5 branch.
+** *PART 1,2,3* are in `main branch`, *PART 4* is in `PART4 branch` and *PART 5* is in `PART5 branch`.
 
 ## _Checkout JsMastery's MERN Videos here👇_
 https://youtu.be/ngc9gnGgUdA
