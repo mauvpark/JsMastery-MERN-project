@@ -98,7 +98,102 @@ return(
 10. If PostDetails Component's style is collapsed:
 - solution: https://github.com/adrianhajdin/project_mern_memories/blob/PART_4/client/src/components/Posts/Post/styles.js
 11. PostDetails undefined:
-solution: Give a question mark to 'post' variable. e.g. `<Typography>{post?.title}</Typography>`
+- solution: Give a question mark to 'post' variable. e.g. `<Typography>{post?.title}</Typography>`
+12. validateDOMNesting(...): <button> cannot appear as a descendant of <button>.: https://stackoverflow.com/questions/66409964/warning-validatedomnesting-a-cannot-appear-as-a-descendant-of-a
+
+#### client Post/Post.js `<ButtonBase></ButtonBase>` to `<div></div>`
+```javascript
+<div className={classes.cardAction} onClick={openPost}>
+	<CardMedia
+		className={classes.media}
+		image={post.selectedFile ? post.selectedFile : defaultImg}
+		title={post.title}
+	/>
+	<div className={classes.overlay}>
+		<Typography variant="h6">{post.name}</Typography>
+		<Typography variant="body2">
+			{moment(post.createdAt).fromNow()}
+		</Typography>
+	</div>
+	<div className={classes.overlay2}>
+		{(user?.result?.googleId === post?.creator ||
+			user?.result?._id === post?.creator) && (
+			<Button
+				style={{ color: "white" }}
+				size="small"
+				onClick={() => {
+					setCurrentId(post._id);
+				}}
+			>
+				<MoreHorizIcon fontSize="medium" />
+			</Button>
+		)}
+	</div>
+	<div className={classes.details}>
+		<Typography variant="body2" color="textSecondary">
+			{post.tags.map((tag) => `#${tag} `)}
+		</Typography>
+	</div>
+	<Typography className={classes.title} variant="h5" gutterBottom>
+		{post.title}
+	</Typography>
+	<CardContent>
+		<Typography
+			variant="body2"
+			color="textSecondary"
+			component="p"
+			gutterBottom
+		>
+			{post.message}
+		</Typography>
+	</CardContent>
+</div>
+	
+```
+	
+13. likes quick update for UX:
+```javascript
+const [likes, setLikes] = useState(post?.likes);
+const userId = user?.result?.googleId || user?.result?._id;
+const hasLikedPost = likes.find((like) => like === userId);
+
+const handleLike = () => {
+	dispatch(likePost(post._id));
+
+	if (hasLikedPost) {
+		setLikes(likes.filter((id) => id !== userId));
+	} else {
+		setLikes([...likes, userId]);
+	}
+};
+
+const Likes = () => {
+	if (likes?.length > 0) {
+		return likes.find((like) => like === userId) ? (
+			<>
+				<ThumbUpAltIcon fontSize="small" />
+				&nbsp;
+				{likes.length > 2
+					? `You and ${likes.length - 1} others`
+					: `${likes.length} like${likes.length > 1 ? "s" : ""}`}
+			</>
+		) : (
+			<>
+				<ThumbUpAltOutlined fontSize="small" />
+				&nbsp;{likes.length} {likes.length === 1 ? "Like" : "Likes"}
+			</>
+		);
+	}
+
+	return (
+		<>
+			<ThumbUpAltOutlined fontSize="small" />
+			&nbsp;Like
+		</>
+	);
+};
+
+```
 
 ## _Tips_
 ### PART 1,2,3
